@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
+        xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+        x:Class="ExpenseTracker.Views.MainWindow"
+        Title="Expense Tracker"
+        Width="600"
+        Height="400">
+
+  <!-- Назначаем ViewModel в XAML -->
+  <Window.DataContext>
+    <vm:MainWindowViewModel />
+  </Window.DataContext>
+
+  <StackPanel Margin="10" Spacing="8">
+    <!-- Заголовок -->
+    <TextBlock Text="Список расходов" FontSize="20" Margin="0,0,0,10"/>
+
+    <!-- Блок ввода нового расхода -->
+    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Spacing="8">
+      <DatePicker SelectedDate="{Binding NewDate}" Width="120"/>
+
+      <!-- В Avalonia вместо PlaceholderText используется Watermark -->
+      <TextBox Text="{Binding NewCategory}" Width="120" Watermark="Категория"/>
+      <TextBox Text="{Binding NewAmount}" Width="80" Watermark="Сумма"/>
+      <TextBox Text="{Binding NewComment}" Width="150" Watermark="Комментарий"/>
+
+      <Button Content="Добавить" Command="{Binding AddExpenseCommand}" Width="80"/>
+    </StackPanel>
+
+    <!-- Таблица расходов -->
+    <dg:DataGrid
+      ItemsSource="{Binding Expenses}"
+      AutoGenerateColumns="False"
+      Height="300"
+      GridLinesVisibility="All"
+      Background="Black"
+      RowBackground="#FFFFFF">
+      <dg:DataGrid.Columns>
+        <dg:DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=d}" Width="Auto"/>
+        <dg:DataGridTextColumn Header="Категория" Binding="{Binding Category}" Width="*"/>
+        <dg:DataGridTextColumn Header="Сумма" Binding="{Binding Amount}" Width="Auto"/>
+        <dg:DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" Width="2*"/>
+      </dg:DataGrid.Columns>
+    </dg:DataGrid>
+  </StackPanel>
+</Window>
+
+

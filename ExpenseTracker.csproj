@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <!-- Оставляем false, чтобы не путаться с компилируемыми биндингами -->
+    <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
+    <!-- Если не используете app.manifest, эту строку можно удалить -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Папка для моделей -->
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Базовые пакеты Avalonia -->
+    <PackageReference Include="Avalonia" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
+
+    <!-- Пакет DataGrid -->
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.0" />
+
+    <!-- Шрифты (можно убрать, если не нужны) -->
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0" />
+
+    <!-- Диагностика Avalonia (включается только в Debug) -->
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.0">
+      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+    </PackageReference>
+
+    <!-- MVVM Toolkit -->
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Один App.axaml, чтобы избежать дублирования -->
+    
+
+    <!-- Один MainWindow.axaml из папки Views -->
+    
+  </ItemGroup>
+
+</Project>
+
+
+

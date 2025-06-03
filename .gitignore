@@ -1,0 +1,42 @@
+# Имена файлов и папок, которые Git должен игнорировать
+
+## Каталоги сборки
+bin/
+obj/
+out/
+
+## Среды разработки и ОС
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+
+# macOS
+.DS_Store
+
+# Логи
+*.log
+
+# Avalonia специфичные
+*.AvaloniaResources.cache
+*.Avalonia.Filters.cache
+
+## NuGet пакеты
+*.nupkg
+packages/
+
+## Пакеты node_modules (если появятся фронтенд-скрипты)
+node_modules/
+
+## Docker (если создадите)
+docker-compose.override.yml
+Dockerfile
+
+## Личные файлы настроек
+app.manifest
