@@ -76,3 +76,8 @@ ExpenseTracker помогает пользователю вести просто
    ```bash
    git clone git@github.com:r30mmy10/ExpenseTracker.git
    cd ExpenseTracker
+2. dotnet restore
+   dotnet build
+3. dotnet run
+После выполнения этой команды откроется окно ExpenseTracker с формой ввода и таблицей расходов.
+
